@@ -43,10 +43,10 @@ public class Stack {
     }
 
     public void printStack(){
-        Node valor = top;
-        while (valor != null) {
-            System.out.print(valor.getValue() + " ");
-            valor = valor.getNext();
+        Node current = top;
+        while (current != null) {
+            System.out.print(current.getValue() + " ");
+            current = current.getNext();
         }
         System.out.println();
     }

@@ -1,4 +1,3 @@
-
 import controllers.Cola;
 import controllers.ColaG;
 import controllers.Stack;
@@ -68,6 +67,47 @@ public class App {
         System.out.println("Atiende a la persona: " + colaPersonas.remove().getNombre());
         System.out.println("Tam = " + colaPersonas.size());
         colaPersonas.printCola();
-        
+
+        System.out.println("\nBusqueda por nombre");
+        Persona encontrada = colaPersonas.findByName("David");
+
+        if (encontrada != null){
+            System.out.println( "Encontrada--- " + encontrada);
+        }else{
+            System.out.println("No se encontró persona con ese nombre");
+        }
+
+        Persona pEliminada = colaPersonas.removeByName("David");
+        System.out.println("Eliminada por nombre: " + pEliminada);
+        colaPersonas.printCola();
+
+        // Ejercicio 01 - Validar signos
+
+        System.out.println("\nEjercicio 01 - Validar signos");
+        Ejercicio_01_sign.SignValidator signValidator = new Ejercicio_01_sign.SignValidator();
+        String cadena = "([]){}";
+        boolean valido1 = signValidator.isValid(cadena);
+        System.out.println("Cadena: " + cadena + " es valida ? :  " + valido1);
+        String cadena2 = "({)}";
+        boolean valido2 = signValidator.isValid(cadena2);
+        System.out.println("Cadena: " + cadena2 + " es valida ? :  " + valido2);
+
+        // Ejercicio 02 - Ordenar un Stack
+        System.out.println("\nEjercicio 02 - Ordenar un Stack");
+        Ejercicio_02_sorting.StackSorter stackSorter = new Ejercicio_02_sorting.StackSorter();
+        Stack stackOrdenar = new Stack();
+        stackOrdenar.push(5);
+        stackOrdenar.push(1);
+        stackOrdenar.push(4);
+        stackOrdenar.push(2);
+
+        System.out.println("Stack original:");
+        stackOrdenar.printStack();
+
+        stackSorter.sortStack(stackOrdenar);
+
+        System.out.println("Stack ordenado:");
+        stackOrdenar.printStack();
+
     }
 }
